@@ -37,7 +37,7 @@ function Posters() {
           viewport={{ once: true }}
           className="text-4xl font-extrabold tracking-tight text-orange-500 sm:text-5xl"
         >
-          TRUSTIFYY
+          TRUSTIFFY
         </motion.h2>
       </div>
 
