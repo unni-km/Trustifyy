@@ -3,12 +3,13 @@ import PosterCarousel from "../components/PosterCarousel";
 import TestimonialCarousel from '../components/Testmon';
 import InsuranceTypeIcon from '../components/InsuranceIcon';
 import { motion } from 'framer-motion';
+import EnquireNow from '../components/Enquery';
 
 function Home() {
   const types = ['car', 'health', 'bike', 'home'];
 
   return (
-    <div className="bg-gradient-to-b from-gray-900 to-black">
+    <div className="bg-gradient-to-b from-gray-900 to-black relative min-h-screen">
       {/* Poster Carousel */}
       <section className="pt-8">
         <PosterCarousel />
@@ -48,6 +49,9 @@ function Home() {
       <section className="py-12">
         <TestimonialCarousel />
       </section>
+
+      {/* Floating Enquire Now Button */}
+      <EnquireNow />
     </div>
   );
 }
