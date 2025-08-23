@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const fullText = `
 At Trustiffy Insurance Solutions, we are a newly established insurance platform dedicated to making insurance simple, transparent, and accessible for everyone. Just like your trusted marketplace, we allow you to explore, compare, and choose from a wide range of insurance partners — all in one place.
@@ -17,24 +18,35 @@ function About() {
       setDisplayText(fullText.slice(0, index));
       index++;
       if (index > fullText.length) clearInterval(timer);
-    }, 20);
-
+    }, 15);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-100 text-gray-800">
-      
-      {/* Page Banner */}
-      <div className="bg-gradient-to-r from-white-500 to-yellow-400 text-black py-20 shadow-lg">
-        <h1 className="text-4xl font-bold text-center drop-shadow-lg">About Us</h1>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-gray-200">
+      {/* Banner */}
+    <div className="relative py-20 bg-black/40 backdrop-blur-md border-b border-gray-800">
+  <motion.h1
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-5xl font-bold text-center text-white tracking-wide"
+  >
+    About Us
+  </motion.h1>
+</div>
+
 
       {/* Content Section */}
-      <div className="px-6 py-12 flex flex-col items-center">
-        <p className="max-w-3xl text-lg leading-relaxed text-center whitespace-pre-line font-medium animate-fadeIn">
+      <div className="px-6 py-16 flex justify-center">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="max-w-4xl text-lg md:text-xl leading-relaxed text-gray-300 text-center whitespace-pre-line font-medium"
+        >
           {displayText}
-        </p>
+        </motion.p>
       </div>
     </div>
   );
