@@ -7,6 +7,7 @@ import EnquireNow from "../components/Enquery";
 import LeadForm from "../components/LeadForm";
 import WhyChoose from "../components/WhyChoose";
 import VehicleLeadForm from "../components/VehicleLeadForm"; // ✅ renamed
+import OurPartners from "../components/OurPartners";
 
 function Home() {
   const [healthLeadOpen, setHealthLeadOpen] = useState(false);
@@ -35,6 +36,10 @@ function Home() {
       {/* Poster Carousel */}
       <section className="py-12">
         <PosterCarousel />
+      </section>
+      
+  <section className="py-12">
+        <OurPartners />
       </section>
 
       {/* Why Choose Section */}
