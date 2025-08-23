@@ -15,7 +15,7 @@ function EnquireNow() {
         className="flex items-center gap-2 bg-green-500 text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110"
       >
         <FaWhatsapp className="text-2xl" />
-        <span className="font-semibold">Enquire Now</span>
+        <span className="font-semibold">Discover More</span>
       </a>
     </div>
   );

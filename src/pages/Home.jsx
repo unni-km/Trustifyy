@@ -1,47 +1,45 @@
 import React, { useState } from "react";
+import HeroSection from "../components/HeroSection";   
+import ServicesSection from "../components/ServicesSection"; 
 import PosterCarousel from "../components/PosterCarousel";
 import TestimonialCarousel from "../components/Testmon";
-import InsuranceTypeIcon from "../components/InsuranceIcon";
-import { motion } from "framer-motion";
 import EnquireNow from "../components/Enquery";
 import LeadForm from "../components/LeadForm";
+import WhyChoose from "../components/WhyChoose";
+import VehicleLeadForm from "../components/VehicleLeadForm"; // ✅ renamed
 
 function Home() {
-  const [leadOpen, setLeadOpen] = useState(false);
+  const [healthLeadOpen, setHealthLeadOpen] = useState(false);
+  const [vehicleLeadOpen, setVehicleLeadOpen] = useState(false);
+  const [vehicleType, setVehicleType] = useState(""); // optional if you want "car" or "bike" in the form
+
   const types = ["car", "health", "bike", "home"];
 
   const handleIconClick = (type) => {
     if (type === "health") {
-      setLeadOpen(true);
+      setHealthLeadOpen(true); // health shows popup
+    } else if (type === "bike" || type === "car") {
+      setVehicleType(type); // optional: you can display "Car" or "Bike" in the form heading
+      setVehicleLeadOpen(true);
     }
   };
 
   return (
     <div className="bg-gradient-to-b from-gray-900 to-black relative min-h-screen">
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* Services Section */}
+      <ServicesSection types={types} handleIconClick={handleIconClick} />
+
       {/* Poster Carousel */}
-      <section className="pt-8">
+      <section className="py-12">
         <PosterCarousel />
       </section>
 
-      {/* Services Section */}
-      <section className="my-16 px-4">
-        <motion.h2
-          className="text-center text-4xl font-extrabold tracking-widest text-orange-500 mb-12"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          SERVICES
-        </motion.h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 justify-items-center">
-          {types.map((type, index) => (
-            <div key={index} onClick={() => handleIconClick(type)}>
-              <InsuranceTypeIcon type={type} index={index} />
-            </div>
-          ))}
-        </div>
+      {/* Why Choose Section */}
+      <section className="py-12">
+        <WhyChoose />
       </section>
 
       {/* Testimonials */}
@@ -52,8 +50,18 @@ function Home() {
       {/* Floating Enquire Now Button */}
       <EnquireNow />
 
-      {/* Lead Form Modal */}
-      <LeadForm isOpen={leadOpen} onClose={() => setLeadOpen(false)} />
+      {/* Health Lead Form Popup */}
+      <LeadForm 
+        isOpen={healthLeadOpen} 
+        onClose={() => setHealthLeadOpen(false)} 
+      />
+
+      {/* Vehicle Lead Form Popup */}
+      <VehicleLeadForm 
+        isOpen={vehicleLeadOpen} 
+        onClose={() => setVehicleLeadOpen(false)}
+        vehicleType={vehicleType} // optional, you can show "Car" or "Bike" in form
+      />
     </div>
   );
 }
