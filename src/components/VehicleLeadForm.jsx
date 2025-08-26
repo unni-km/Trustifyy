@@ -61,7 +61,7 @@ Vehicle Number: ${vehicleNumber}`;
 
             {/* Heading */}
             <h2 className="text-2xl font-bold mb-6 text-center text-orange-600">
-              Vehicle Lead Form
+             Please fill the Details
             </h2>
 
             {/* Agent Code */}
