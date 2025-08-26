@@ -19,8 +19,8 @@ function Header() {
       <nav className="hidden md:flex space-x-8">
         {[
           { to: "/", label: "Home" },
-          { to: "/about", label: "About" },
           { to: "/service", label: "Services" },
+          { to: "/about", label: "About" },
           { to: "/contact", label: "Contact" },
         ].map((link, index) => (
           <Link
@@ -65,8 +65,8 @@ function Header() {
         <div className="absolute top-20 left-0 w-full bg-gray-900/95 backdrop-blur-md border-b border-gray-800 flex flex-col items-center py-6 space-y-6 md:hidden">
           {[
             { to: "/", label: "Home" },
-            { to: "/about", label: "About" },
             { to: "/service", label: "Services" },
+             { to: "/about", label: "About" },
             { to: "/contact", label: "Contact" },
           ].map((link, index) => (
             <Link
