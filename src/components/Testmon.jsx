@@ -1,48 +1,75 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 function TestimonialCarousel() {
   const testimonials = [
-    { id: 1, name: 'Alice', text: 'Amazing experience!' },
-    { id: 2, name: 'Bob', text: 'Easy and fast quotes!' },
-    { id: 3, name: 'Charlie', text: 'Saved me a lot of money!' },
-    { id: 4, name: 'Diana', text: 'Highly recommend this service.' },
+    {
+      id: 1,
+      name: "Anadhu Vijayan, Kottarakara",
+      text: "I bought health insurance through them, and the process was smooth. Claims were settled without any stress. Highly trustworthy!",
+    },
+    {
+      id: 2,
+      name: "Vishnu Gupta, Trivandrum",
+      text: "Got my car insurance renewed in minutes. The premium was reasonable, and support team explained all benefits clearly.",
+    },
+    {
+      id: 3,
+      name: "Nandana, Calicut",
+      text: "I took family health insurance, and they guided me with the best plan. Very transparent and professional service.",
+    },
+    {
+      id: 4,
+      name: "Unni Krishnan, Thrissur",
+      text: "When my bike met with an accident, the claim process was quick and hassle-free. I am fully satisfied.",
+    },
+    {
+      id: 5,
+      name: "Lakshmi Pillai, Kollam",
+      text: "I secured my home with their insurance service. They explained every detail patiently and gave me the right coverage.",
+    },
+    {
+      id: 6,
+      name: "Vishnu Nair, Alappuzha",
+      text: "Their health insurance support is excellent. I got admitted recently and the cashless claim worked perfectly.",
+    },
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-orange-500/10 via-pink-500/10 to-yellow-500/10">
-      <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black relative overflow-hidden">
+      <h2 className="text-4xl font-extrabold text-center mb-14 text-white tracking-tight">
         What Our Customers Say
       </h2>
-      <div className="flex gap-8 overflow-x-auto px-4 md:px-16 snap-x snap-mandatory scrollbar-hide">
+
+      <div className="flex gap-10 overflow-x-auto px-6 md:px-20 snap-x snap-mandatory scrollbar-hide">
         {testimonials.map((t, index) => (
           <motion.blockquote
             key={t.id}
-            className="bg-white rounded-2xl shadow-lg p-6 min-w-[260px] max-w-sm snap-center flex-shrink-0 border border-orange-200/40"
-            initial={{ opacity: 0, y: 50 }}
+            className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg p-8 min-w-[280px] max-w-md snap-center flex-shrink-0 border border-gray-700 relative transform transition duration-300"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{
               duration: 0.6,
-              delay: index * 0.15,
-              ease: 'easeOut',
+              delay: index * 0.2,
+              ease: "easeOut",
             }}
             whileHover={{
               scale: 1.05,
-              y: -5,
-              boxShadow: '0px 10px 25px rgba(249, 115, 22, 0.3)',
-            }}
-            animate={{
-              y: [0, -3, 0, 3, 0], // floating
-            }}
-            animateTransition={{
-              repeat: Infinity,
-              duration: 6 + index,
-              ease: 'easeInOut',
+              y: -6,
+              boxShadow: "0px 15px 40px rgba(255, 255, 255, 0.2)",
             }}
           >
-            <p className="text-gray-700 italic">“{t.text}”</p>
-            <footer className="mt-4 text-right text-sm font-semibold text-gray-600">
+            {/* Stars */}
+            <div className="flex mb-4 text-yellow-400 text-lg">
+              {"★★★★★"}
+            </div>
+
+            <p className="text-gray-200 text-base leading-relaxed italic">
+              “{t.text}”
+            </p>
+
+            <footer className="mt-6 text-right text-sm font-semibold text-gray-300">
               – {t.name}
             </footer>
           </motion.blockquote>
